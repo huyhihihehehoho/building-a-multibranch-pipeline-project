@@ -1,6 +1,6 @@
 pipeline {
     agent {
-      label 'node1'
+        docker { image 'node:24.21.0-alpine3.24' }
     }
     environment {
         CI = 'true'
@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh '/opt/building-a-multibranch-pipeline-project/jenkins/scripts/test.sh'
+                sh './jenkins/scripts/test.sh'
             }
         }
         stage('Deliver for development') {
