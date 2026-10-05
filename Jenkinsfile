@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+      label 'node1'
+    }
     environment {
         CI = 'true'
     }
@@ -11,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './jenkins/scripts/test.sh'
+                sh '/opt/building-a-multibranch-pipeline-project/jenkins/scripts/test.sh'
             }
         }
     }
