@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'node:24.21.0-alpine3.24' }
+      label 'node1'
     }
     environment {
         CI = 'true'
